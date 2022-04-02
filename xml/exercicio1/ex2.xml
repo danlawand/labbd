@@ -1,0 +1,11 @@
+<neighboors>
+for $country in doc('mondial.xml')//country, $neighboor in doc('mondial.xml')//country
+  where $country/border/@country=$neighboor/@car_code
+  return
+    <neighboor>
+      {$country/name/text()}
+    </neighboor>
+    <neighboor>
+      {$neighboor/name/text()}
+    </neighboor>
+</neighboors>

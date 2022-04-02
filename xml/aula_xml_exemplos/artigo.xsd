@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="artigo">
+  <xs:complexType>
+	<xs:sequence>
+		<xs:element name="título" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="autor" type="tAutor" minOccurs="1" maxOccurs="unbounded"/>
+		<xs:element name="resumo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		<xs:element ref="seção" minOccurs="1" maxOccurs="unbounded"/>
+	</xs:sequence>
+	<xs:attribute name="data" type="xs:date" use="optional"/> 
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="seção" type="tSeção"/>
+
+<xs:complexType name="tAutor">
+	<xs:sequence>
+		<xs:element name="nomea" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="instituição" type="tInst" minOccurs="1" maxOccurs="unbounded"/>
+		<xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tSeção">
+	<xs:sequence>
+		<xs:element name="nomes" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="texto" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="tInst">
+	<xs:sequence>
+		<xs:element name="nomei" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="endereço" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	</xs:sequence>
+</xs:complexType>
+
+</xs:schema>

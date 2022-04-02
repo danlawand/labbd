@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<artigo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="artigo.xsd">
+	<autor>
+		<nomea> Ronaldo Mello </nomea>
+		<instituição> 
+			<nomei> UFRGS </nomei>
+			<endereço> Bento Gonçalves, 9500 </endereço>
+		</instituição>
+		<instituição> 
+			<nomei> UFSC </nomei>
+		</instituição>
+		<email> ronaldo@inf.ufrgs.br </email>
+	</autor>
+	<autor>
+		<nomea> Carlos A. Heuser </nomea>
+		<instituição> 
+			<nomei> UFRGS </nomei>
+			<endereço> Bento Gonçalves, 9500 </endereço>
+		</instituição>
+		<email> heuser@inf.ufrgs.br </email>
+	</autor>
+	<resumo> ... </resumo>
+	<seção> 
+		<nomes> Introdução </nomes>
+		<texto> ... </texto> 
+	</seção>
+</artigo>
+

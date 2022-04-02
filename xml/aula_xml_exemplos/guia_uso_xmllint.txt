@@ -1,0 +1,43 @@
+>>> Uso do xmllint (ferramenta para XML disponível para Linux, no pacote libxml):
+
+- Para verificar a validade de um documento XML quanto ao seu esquema DTD:
+
+$ xmllint --valid emps.xml
+
+- Para verificar a validade de um documento XML quanto ao seu esquema XSD (XML Schema):
+
+$ xmllint --schema emps.xsd emps.xml
+
+
+- Para consultas XPath:
+
+$ xmllint --xpath '//empregado[1]' emps.xml
+
+$ xmllint --xpath '//empregado[@cod="E02"]' emps.xml
+
+
+- Para que somente os valores dos elementos sejam mostrados (sem as tags), pode-se usar a função string():
+
+$ xmllint --xpath 'string(//empregado[1])' emps.xml
+
+$ xmllint --xpath 'string(//empregado[@cod="E02"])' emps.xml
+
+
+>>> Alguns validadores online (úteis para teste):
+
+http://xmlvalidator.new-studio.org/
+https://www.freeformatter.com/xml-validator-xsd.html
+http://www.corefiling.com/opensource/schemaValidate.html
+http://www.xmlforasp.net/SchemaValidator.aspx
+
+
+>>> Algumas processadores de consultas XPath / XQuery online:
+
+https://www.freeformatter.com/xpath-tester.html
+https://codebeautify.org/Xpath-Tester
+http://www.webtoolkitonline.com/xml-xpath-tester.html
+http://xmlgrid.net/xpath.html
+http://brettz9.github.io/xqueryeditor/
+
+
+

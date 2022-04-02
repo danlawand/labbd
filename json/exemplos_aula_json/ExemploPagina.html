@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Criacao de um objeto a partir de uma string JSON</h2>
+<p>
+Nome: <span id="pnome1"></span><br> 
+Sobrenome: <span id="snome1"></span><br> 
+</p>
+
+<p>
+Nome: <span id="pnome2"></span><br> 
+Sobrenome: <span id="snome2"></span><br> 
+</p>
+ 
+<script>
+var txt = '{"empregados":[' +
+'{"nome":"Paulo","sobrenome":"Costa" },' +
+'{"nome":"Ana","sobrenome":"Gomes" },' +
+'{"nome":"Pedro","sobrenome":"Neves" }]}';
+
+var obj1 = eval("(" + txt + ")");
+
+document.getElementById("pnome1").innerHTML=obj1.empregados[1].nome 
+document.getElementById("snome1").innerHTML=obj1.empregados[1].sobrenome 
+
+var obj2 = JSON.parse(txt);
+
+document.getElementById("pnome2").innerHTML=obj2.empregados[2].nome 
+document.getElementById("snome2").innerHTML=obj2.empregados[2].sobrenome 
+</script>
+</body>
+</html>
+

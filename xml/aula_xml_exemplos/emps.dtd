@@ -1,0 +1,10 @@
+<!ELEMENT empregados (empregado+)>
+<!ELEMENT empregado (nome, inicial-meio?, sobrenome)>
+<!ATTLIST empregado
+    cod CDATA   #REQUIRED
+    dept CDATA  #REQUIRED
+>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT inicial-meio (#PCDATA)>
+<!ELEMENT sobrenome (#PCDATA)>
+

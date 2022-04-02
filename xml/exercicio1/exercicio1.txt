@@ -1,0 +1,40 @@
+1A)
+distinct-values(doc('mondial.xml')//encompassed/[@continent])
+
+1B)
+doc('mondial.xml')//border[@country="BR"]/../name/text()
+
+1C)
+doc('mondial.xml')//country[count(ethnicgroup)>10]/name/text()
+
+1D)
+doc('mondial.xml')//river/source[mountains="Andes"]/../name/text()
+
+2A)
+for $country in doc('mondial.xml')//country
+  order by xs:decimal($country/@area) descending
+  return $country/name/text()
+  
+2B)
+<countries>
+    {
+      for $country in doc('mondial.xml')//country
+        return       
+          <country>
+            {$country/name/text()}
+          </country>
+    }
+</countries>
+
+3B)
+<neighboors>
+    {
+        for $country in doc('mondial.xml')//country, $neighboor in doc('mondial.xml')//country
+        where $country/border/@country=$neighboor/@car_code
+        return
+        <neighboor>
+            <country> {$country/name/text()} </country>
+            <country> {$neighboor/name/text()} </country>
+        </neighboor>
+    }
+</neighboors>

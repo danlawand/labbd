@@ -1,0 +1,71 @@
+>>> Guia rápido para o uso do BaseX na aula:
+
+1) Baixe o jar do BaseX de: http://files.basex.org/releases/9.3.1/BaseX964.jar
+
+------------------------------------
+2) Atribua a permissão de execução para o arquivo baixado:
+
+- No gerenciador de arquivos, abra a janela de propriedades do arquivo BaseX931.jar e atribua a permissão de execução para ele
+ou
+- No terminal, dentro do diretório em que o arquivo foi baixado, execute
+
+$ chmod u+x BaseX964.jar
+
+------------------------------------
+3) Execute o BaseX:
+
+- No gerenciador de arquivos, dê dois cliques no arquivo BaseX931.jar 
+ou 
+- No terminal, dentro do diretório em que o arquivo foi baixado, execute
+
+$ java -jar BaseX931.jar
+
+------------------------------------
+4) No BaseX, escolha o diretório "exemplos" (baixado do e-Disciplinas) como diretório de trabalho.
+Os arquivos XML e de esquema (.dtd e .xsd) de exemplo serão listados na ferramenta. 
+
+------------------------------------
+5) Para verificar se um arquivo 'emps.xml' é válido segundo o esquema XMLSchema 'emps.xsd', execute o comando: 
+
+validate:xsd(doc('emps.xml'), 'emps.xsd')
+
+ou 
+
+validate:xsd-info(doc('emps.xml'), 'emps.xsd')
+
+ou 
+
+validate:xsd-report(doc('emps.xml'), 'emps.xsd')
+
+------------------------------------
+6) Para verificar se um arquivo 'emps.xml' é válido segundo o esquema DTD 'artigos.dtd', execute o comando: 
+
+validate:dtd(doc('emps.xml'), 'emps.dtd')
+
+ou 
+
+validate:dtd-info(doc('emps.xml'), 'emps.dtd')
+
+ou 
+
+validate:dtd-report(doc('emps.xml'), 'emps.dtd')
+
+------------------------------------
+6) Como exemplos de consultas em XPath, execute os seguintes comandos (um por vez):
+
+doc('emps.xml')//empregado[1]
+
+doc('emps.xml')//empregado[@cod='E02']
+
+------------------------------------
+7) Como exemplo de consulta em XQuery, execute o seguinte comando:
+
+<emp-dept>
+  {
+     for $e in doc('emps.xml')//empregado
+     where $e/@dept='D01'
+     order by $e/nome
+     return
+         $e/nome
+  }
+</emp-dept>

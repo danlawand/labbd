@@ -1,0 +1,11 @@
+<?xml version='1.0' ?>
+<departamentos>
+    <departamento cod='D01'>
+        <nome>Vendas</nome>
+        <local>3º. andar</local>
+    </departamento>
+    <departamento cod='D02'>
+        <nome>Financeiro</nome>
+        <local>4º. andar</local>
+    </departamento>
+</departamentos>

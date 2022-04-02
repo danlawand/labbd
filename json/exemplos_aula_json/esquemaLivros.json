@@ -1,0 +1,32 @@
+{ "type":"object",
+  "properties": {
+     "Livros": {
+        "type":"array",
+        "items": {
+           "type":"object",
+           "properties": {
+              "ISBN": { "type":"string", "pattern":"ISBN*" },
+              "Preço": { "type":"integer",
+                         "minimum":0, "maximum":200 },
+              "Edição": { "type":"integer", "optional": true },
+              "Nota": { "type":"string", "optional": true },
+              "Título": { "type":"string" },
+              "Autores": { 
+                 "type":"array",
+                 "minItems":1,
+                 "maxItems":10,
+                 "items": {
+                    "type":"object",
+                    "properties": {
+                       "Nome": { "type":"string" },
+                       "Sobrenome": { "type":"string" }}}}}}},
+     "Revistas": {
+        "type":"array",
+        "items": {
+           "type":"object",
+           "properties": {
+              "Título": { "type":"string" },
+              "Mês": { "type":"string",
+                         "enum":["Janeiro","Fevereiro"] },
+              "Ano": { "type":"integer" }}}}
+}}

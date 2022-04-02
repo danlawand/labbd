@@ -1,0 +1,107 @@
+>>> XPath:
+
+1) 
+doc('emps.xml')/empregados/empregado 
+
+2)
+doc('emps.xml')//empregado 
+
+3)
+doc('emps.xml')//empregado/. 
+
+4)
+doc('emps.xml')//empregado/..
+
+5)
+doc('emps.xml')//empregado/*
+
+6)
+doc('emps.xml')//empregado/@cod 
+
+7)
+doc('emps.xml')//empregado[@cod='E01']
+
+8)
+doc('emps.xml')//empregado[@cod='E01']/nome
+
+9)
+doc('emps.xml')//empregado[position() = 1]  
+
+10)
+doc('emps.xml')//empregado[1]  
+
+11)
+doc('emps.xml')//empregado[@dept='D01' and nome='João'] 
+
+12)
+doc('emps.xml')//empregado[starts-with(nome,'J')]
+
+-----------------
+>>> XQuery:
+
+1)
+<emp-dept>
+  {for $e in doc('emps.xml')//empregado
+     return $e/nome }
+</emp-dept>
+
+
+2)
+<emp-dept>
+  {
+     for $e in doc('emps.xml')//empregado
+     where $e/@dept='D01'
+     order by $e/nome
+     return
+         $e/nome
+  }
+</emp-dept>
+
+
+3)
+<departamentos>
+  { for $d in distinct-values(doc('emps.xml')//empregado/@dept)
+    return
+       <departamento>
+          <codigo>{$d}</codigo>
+          <empregados>
+             { for $e in doc('emps.xml')//empregado
+               where $e/@dept=$d
+               return
+                  <empregado>
+                     {$e/nome}
+                     {$e/sobrenome}
+                  </empregado>
+             }
+          </empregados>
+       </departamento>
+  }
+</departamentos>
+
+
+4)
+<resultado>
+  {
+     for $d in doc('depts.xml')//departamento,
+         $e in doc('emps.xml')//empregado
+     where $d/@cod=$e/@dept
+     return
+        <dep-emp>
+           <dept_codigo>{$d/@cod/data()}</dept_codigo>
+           <dept_nome>{$d/nome/text()}</dept_nome>
+           <empregado>{$e/nome/text()}</empregado>
+        </dep-emp>
+  } 
+</resultado>
+
+
+5)
+<num-emp>
+  {
+        let $e := doc('emps.xml')//empregado
+        return
+             count($e)
+  }
+</num-emp>
+
+

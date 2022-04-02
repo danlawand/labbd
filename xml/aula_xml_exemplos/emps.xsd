@@ -1,0 +1,22 @@
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+    <xs:element name="empregados" type="tEmpregados"/> 
+
+    <xs:complexType name="tEmpregados"> 
+        <xs:sequence> 
+            <xs:element name="empregado" type="tEmpregado" minOccurs="1" maxOccurs="unbounded"/> 
+        </xs:sequence> 
+    </xs:complexType> 
+
+
+    <xs:complexType name="tEmpregado"> 
+        <xs:sequence> 
+            <xs:element name="nome" type="xs:string"/> 
+            <xs:element name="inicial-meio" type="xs:string" 
+                minOccurs="0"/> 
+            <xs:element name="sobrenome" type="xs:string"/> 
+        </xs:sequence> 
+        <xs:attribute name="cod" type="xs:string" use="required"/> 
+        <xs:attribute name="dept" type="xs:string" use="optional"/> 
+    </xs:complexType> 
+</xs:schema>   
