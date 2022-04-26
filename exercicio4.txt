@@ -1,0 +1,30 @@
+Daniel Angelo Esteves Lawand
+NUSP: 10297693
+
+
+1. Quais BDs foram escolhidos?
+
+Banco de Dados (BD) orientado a Documentos, em que cada música, álbum e artista possuem uma chave. Iremos realizar consultas de recuperação de agregados pela estrutura interna do documento e ou de uma chave, com uma frequência grande. Ou seja, a busca por uma música, álbum ou artista se dará por meio de seu conteúdo. Além de que música, álbum e artista possuem muitas informações, mas as conexões entre ele é simples.
+
+BD orientado a grafos para representar os usuários e suas relações. Os usuários tem informações simples, mas possuem conexões complexas entre os prórios usuários, e também com as músicas, artistas e álbuns.
+
+2.  Indique quais das consultas a seguir serão realizadas com bom desempenho e quais serão
+    realizadas com desempenho ruim sobre o(s) esquema(s) que você criou e explique o porquê
+    disso. As consultas a serem analisadas são as que recuperam:
+
+a) Dados de todas as músicas de um dado artista
+R: Bom desempenho, pois no mesmo documento encontra-se todas as informações do artista e de todas as suas músicas.
+
+b) Os títulos e os respectivos artistas de todas as músicas ouvidas por um dado usuário
+R: Tem um bom desempenho, pois sabemos quais são os ids dos títulos ouvidos pelo usuário, basta procurarmos no documento cada música que teremos os artistas também.
+
+c) Dados dos artistas e grupos mais bem avaliados
+R: Desempenho bom, no BD orientado a Grafos sabemos quais são os artistas seguidos, podemos fazer uma contagem e procurar pelos mais seguidos, e assim no BD orientado a documentos, basta realizar uma simples busca retorna as informações dos artistas.
+
+
+d) Os títulos e artistas das músicas mais tocadas na semana
+R: Desempenho ruim, pois precisaríamos migrar entre os dois banco de dados e resgatar as músicas mais tocadas dentro de um intervalo de tempo, visto que a data está sendo armazenada no BD de grafos e a quantidade de vezes tocada no BD orientado a documentos.
+
+e) As músicas que são de um genêro musical favorito de um dado usuário e que são
+favoritas de ao menos um amigo dele (ou seja, são boas recomendações para o usuário)
+R: Desempenho ruim, pois precisaríamos migrar de um estilo de BD para outro, seria fácil encontrar as músicas de um gênero musical favorito de um usuário, mas em relação a outro usuário seria necessário capturar todo o documento dos dois usuários e fazer a comparação, e isso levaria a um desempenho ruim.
